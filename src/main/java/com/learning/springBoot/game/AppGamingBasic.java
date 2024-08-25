@@ -1,10 +1,4 @@
-package com.learning.springBoot;
-
-import com.learning.springBoot.game.ContraGame;
-import com.learning.springBoot.game.GameConsole;
-import com.learning.springBoot.game.GameRunner;
-import com.learning.springBoot.game.MarioGame;
-import com.learning.springBoot.game.PacManGame;
+package com.learning.springBoot.game;
 
 public class AppGamingBasic {
 
