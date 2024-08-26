@@ -1,8 +1,10 @@
 package com.learning.springBoot.game;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
+@Qualifier("pacManGame")
 public class PacManGame implements GameConsole {
 
 	@Override
