@@ -10,6 +10,13 @@ public class GameRunner {
 		game.up();
 		game.down();
 	}
+	public void run() {
+		System.out.println("Using ruun method");
+		game.left();
+		game.right();
+		game.up();
+		game.down();
+	}
 	
 
 }
