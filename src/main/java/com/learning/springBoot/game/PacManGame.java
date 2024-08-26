@@ -1,5 +1,8 @@
 package com.learning.springBoot.game;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class PacManGame implements GameConsole {
 
 	@Override
