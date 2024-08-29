@@ -1,4 +1,4 @@
-package com.learning.springBoot.game;
+package com.learning.springBoot.exercise;
 
 import java.util.Arrays;
 
@@ -65,16 +65,6 @@ class BussinessClass{
 	public String toString() {
 		return "BussinessClass [dep1=" + dep1 + ", dep2=" + dep2 + "]";
 	}
-
-	
-
-
-	
-	
-	
-	
-	
-	
 }
 
 /*
@@ -82,36 +72,18 @@ class BussinessClass{
  */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @Configuration
 //@ComponentScan("com.learning.springBoot.game")
 @ComponentScan // if no class is specified the current package will take for component scan
-public class AGamingAppLauncherDependencyInjection {
+public class AppLauncherDependencyInjection {
 	
 	public static void main(String[] args) {	
-		try(var context =new AnnotationConfigApplicationContext(AGamingAppLauncherDependencyInjection.class)){
+		try(var context =new AnnotationConfigApplicationContext(AppLauncherDependencyInjection.class)){
 			//context.getBean(GameRunner.class);
 			System.out.println("Here");
 			Arrays.stream(context.getBeanDefinitionNames()).forEach(System.out::println);
 		
 			System.out.println(context.getBean(BussinessClass.class).toString());
-		
-		
 		}
 	}
 }
