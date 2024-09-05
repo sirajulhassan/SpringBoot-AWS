@@ -1,16 +1,16 @@
-package com.learning.springBoot.learnJPAandHibernate.course.jdbc;
+package com.learning.springBoot.learnJPAandHibernate.course;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import com.learning.springBoot.learnJPAandHibernate.course.Course;
+import com.learning.springBoot.learnJPAandHibernate.course.jdbc.CourseJDBCRepo;
 
 @Component
 public class CourseCommandLineRunner implements CommandLineRunner {
 	
 	@Autowired
-	CourseRepo courseRepo;
+	CourseJDBCRepo courseRepo;
 	
 	@Override
 	public void run(String... args) throws Exception {

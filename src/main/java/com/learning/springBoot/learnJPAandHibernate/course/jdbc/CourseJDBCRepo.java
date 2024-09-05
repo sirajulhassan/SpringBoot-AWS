@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.learning.springBoot.learnJPAandHibernate.course.Course;
 
 @Repository
-public class CourseRepo {
+public class CourseJDBCRepo {
 	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
