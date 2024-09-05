@@ -1,7 +1,14 @@
 package com.learning.springBoot.learnJPAandHibernate.course;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+
+@Entity //adding as part of JPA -if table name is different in database we need to specify name here
 public class Course {
-	private int id;
+
+	@Id //adding as part of JPA -  if column name is dofferent we need to specify the name here using the @name=""
+	private int id; 
 	private String name;
 	private String author;
 	public int getId() {
