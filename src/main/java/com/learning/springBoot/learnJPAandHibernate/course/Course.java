@@ -8,13 +8,13 @@ import jakarta.persistence.Id;
 public class Course {
 
 	@Id //adding as part of JPA -  if column name is dofferent we need to specify the name here using the @name=""
-	private int id; 
+	private long id; 
 	private String name;
 	private String author;
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -33,7 +33,7 @@ public class Course {
 	public String toString() {
 		return "Course [id=" + id + ", name=" + name + ", author=" + author + "]";
 	}
-	public Course(int id, String name, String author) {
+	public Course(long id, String name, String author) {
 		super();
 		this.id = id;
 		this.name = name;
