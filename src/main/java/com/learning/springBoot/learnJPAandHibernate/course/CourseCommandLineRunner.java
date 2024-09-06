@@ -46,13 +46,25 @@ public class CourseCommandLineRunner implements CommandLineRunner {
 		springJPARepo.save(new Course(2,"course2", "auth2"));
 		springJPARepo.save(new Course(3,"course3", "auth3"));
 		springJPARepo.save(new Course(4,"course4", "auth4"));
-		springJPARepo.save(new Course(4,"course5", "auth5"));
+		springJPARepo.save(new Course(5,"course5", "auth5"));
 		
 		// ********* Spring JPA  *************
 		
 		System.out.println(">>>>>>>>"+ springJPARepo.findById(3l));
 		springJPARepo.deleteById(4l);
 		
+		System.out.println("----------------------------------------");
+		System.out.println(">>>>>>>>"+ springJPARepo.findAll());
+		
+		//custom methods
+		//custom method: define a method findBy followed by the java attribute of the property in the interface
+		System.out.println("----------------------------------------");
+		System.out.println("custom author>>"+ springJPARepo.findByAuthor("auth2"));
+		System.out.println("custom author>>"+ springJPARepo.findByAuthor("auth8"));
+		
+		System.out.println("----------------------------------------");
+		System.out.println("custom name>>"+ springJPARepo.findByName("course2"));
+		System.out.println("custom name>>"+ springJPARepo.findByName("test"));
 		
 	}
 
