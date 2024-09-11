@@ -4,7 +4,7 @@
 </head>
 
 <body>
-	test
+	<h1>Welcome ${name} </h1>
 
 </body>
 

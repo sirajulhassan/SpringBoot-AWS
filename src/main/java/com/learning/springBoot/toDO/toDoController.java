@@ -26,7 +26,15 @@ public class toDoController {
 		return "welcome";
 	}
 	
-	@RequestMapping("login")
+	//for the form from login(post)
+	@RequestMapping(value ="login", method = RequestMethod.POST)
+	public String auth(@RequestParam String name,@RequestParam String password, ModelMap model ) {
+		model.put("name", name);
+		return "welcome";
+	}
+	
+	
+	@RequestMapping(value ="login", method = RequestMethod.GET)
 	public String login() {
 		return "login";
 	}
