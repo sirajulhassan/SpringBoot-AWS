@@ -4,6 +4,7 @@
 </head>
 
 <body>
+	${errorMsg}
 	<form method="post">
 		<label>Name:&nbsp;</label> <input type="text" name = "name" placeholder="Enter UserName" />
 		<label>Password:&nbsp;</label> <input type="password" name = "password" />

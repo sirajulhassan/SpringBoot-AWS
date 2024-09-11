@@ -1,5 +1,19 @@
-package com.learning.springBoot.toDO;
+package com.learning.springBoot.toDO.services;
 
-public class toDoService {
+import org.springframework.stereotype.Service;
 
+@Service
+public class ToDoService {
+ 
+	public boolean validateUser(String userName, String password){
+		
+		if (userName != null && userName.equals("siraj") && password != null && password.equals("test")) {
+			return true;
+		}
+		else {
+			return false;
+		}
+		
+	}
+	
 }
