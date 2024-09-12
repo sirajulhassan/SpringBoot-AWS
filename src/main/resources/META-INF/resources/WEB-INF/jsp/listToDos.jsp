@@ -1,16 +1,27 @@
 
 <html>
-	<head>
-	<title>List Todos</title>
-	</head>
-	
-	<body>
-	
+<head>
+<title>List Todos</title>
+<link href="webjars/bootstrap/5.3.3/css/bootstrap.min.css"
+	rel="stylesheet">
+
+
+
+</head>
+
+<body>
+	<div class="container">
+
 		<h1>Hey ${name}, Your ToDOs are:</h1>
 		<hr>
 		${todos}
 		<hr>
-	</body>
+
+	</div>
+	<script src="webjars/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+	<script src="webjars/jquery/3.7.1/jquery.min.js"></script>
+
+</body>
 
 </html>
 
