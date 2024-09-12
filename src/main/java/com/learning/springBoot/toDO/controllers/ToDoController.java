@@ -1,5 +1,6 @@
 package com.learning.springBoot.toDO.controllers;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,8 +44,8 @@ public class ToDoController {
 	}
 	
 	@RequestMapping(value = "add-todo", method=RequestMethod.POST)
-	public String addTodo(ModelMap model) {
-		
+	public String addTodo(@RequestParam String description,ModelMap model) {
+		todoService.addTodo((String)model.get("name"),description, LocalDate.now().plusDays(2),false);
 		return  "redirect:list-todos";
 	}
 	
