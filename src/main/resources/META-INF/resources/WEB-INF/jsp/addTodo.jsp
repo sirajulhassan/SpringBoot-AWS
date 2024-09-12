@@ -9,9 +9,8 @@
 	<div class="container">
 	<pre>${errorMsg}</pre> 
 	<form method="post">
-		<label>Name:&nbsp;</label> <input type="text" name = "name" placeholder="Enter UserName" />
-		<label>Password:&nbsp;</label> <input type="password" name = "password" />
-		<button type="submit">Submit</button>
+		<label>Description&nbsp;</label> <input type="text" name = "description" placeholder="Enter Description" />
+		<input type="submit" class="btn  btn-success">
 	</form>
 	</div>
 	<script src="webjars/bootstrap/5.3.3/js/bootstrap.min.js"></script>

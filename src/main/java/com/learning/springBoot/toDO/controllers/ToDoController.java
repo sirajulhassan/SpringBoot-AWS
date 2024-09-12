@@ -31,11 +31,25 @@ public class ToDoController {
 	}
 
 	@RequestMapping(value = "list-todos", method=RequestMethod.GET)
-	public String requestMethodName(ModelMap model) {
+	public String listTodos(ModelMap model) {
 		List<Todo> todos = todoService.findByUserName("test");
 		model.put("todos", todos);
 		return  "listToDos";
 	}
+	
+	@RequestMapping(value = "add-todo", method=RequestMethod.GET)
+	public String showAddTodo(ModelMap model) {
+		return  "addTodo";
+	}
+	
+	@RequestMapping(value = "add-todo", method=RequestMethod.POST)
+	public String addTodo(ModelMap model) {
+		
+		return  "redirect:list-todos";
+	}
+	
+	
+	
 	
 	
 	
