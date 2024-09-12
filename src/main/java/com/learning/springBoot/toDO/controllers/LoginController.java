@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @SessionAttributes("name")
 
-//@ResponseBody
 public class LoginController {
 	
 	LoginService loginService;
@@ -30,12 +29,20 @@ public class LoginController {
 	public LoginController(LoginService loginService) {
 		super();
 		this.loginService = loginService;
+		System.out.println("login controller");
 	}
 
 	@RequestMapping(value ="login", method = RequestMethod.GET)
 	public String login() {
 		return "login";
 	}
+	
+	@RequestMapping("test")
+	public String test() {
+		return "login";
+	}
+	
+	
 	
 	//for the form from login(post)
 		@RequestMapping(value ="login", method = RequestMethod.POST)
