@@ -2,8 +2,12 @@ package com.learning.springBoot.toDO.entities;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+
 public class Todo {
-  
+
 	private int id;
 	private String username;
 	private String description;

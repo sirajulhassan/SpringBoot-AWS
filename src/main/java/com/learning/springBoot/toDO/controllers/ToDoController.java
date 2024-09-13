@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,12 +41,13 @@ public class ToDoController {
 	
 	@RequestMapping(value = "add-todo", method=RequestMethod.GET)
 	public String showAddTodo(ModelMap model) {
+		 model.addAttribute("todo", new Todo());
 		return  "addTodo";
 	}
 	
 	@RequestMapping(value = "add-todo", method=RequestMethod.POST)
-	public String addTodo(@RequestParam String description,ModelMap model) {
-		todoService.addTodo((String)model.get("name"),description, LocalDate.now().plusDays(2),false);
+	public String addTodo(@ModelAttribute Todo todo,ModelMap model) {
+		todoService.addTodo((String)model.get("name"),todo.getDescription(), LocalDate.now().plusDays(2),false);
 		return  "redirect:list-todos";
 	}
 	
