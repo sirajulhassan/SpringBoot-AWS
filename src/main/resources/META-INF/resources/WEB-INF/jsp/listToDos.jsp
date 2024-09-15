@@ -31,23 +31,3 @@
 </html>
 
 
-
-
-
-<!-- 
-
-<c:forEach items="${todos}" var = todo></c:forEach>
-				<tr>
-					<td>${todo.id}</td>
-					<td>${todo.description}</td>
-					<td>${todo.targetDate}</td>
-					<td>${todo.done}</td>
-				</tr>
-				
-				
-				
-				
-
-
-
- -->
