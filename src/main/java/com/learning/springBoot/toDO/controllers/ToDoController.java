@@ -32,7 +32,8 @@ public class ToDoController {
 		super();
 		this.todoService = todoService;
 	}
-
+	
+	//list all todo
 	@RequestMapping(value = "list-todos", method=RequestMethod.GET)
 	public String listTodos(ModelMap model, @SessionAttribute("name") String name) {
 		model.put("name", name);
@@ -44,7 +45,7 @@ public class ToDoController {
 	}
 	
 	
-	
+	// add a new todo
 	@RequestMapping(value = "add-todo", method=RequestMethod.GET)
 	public String showAddTodo(ModelMap model) {
 		 model.addAttribute("todo", new Todo(0, (String)model.get("name"), "default", null, false));
@@ -81,12 +82,27 @@ public class ToDoController {
 	}
 	
 	
+	//update-todo Get
+	@RequestMapping(value = "update-todo", method=RequestMethod.GET)
+	public String showUpdateTodo(ModelMap model, @RequestParam int id) {
+		Todo todo = todoService.updateById(id);
+		model.addAttribute("todo", todo);
+		return  "addTodo";
+	}
+	
+	//update Post
+	@RequestMapping(value = "update-todo", method=RequestMethod.POST)
+	public String updateTodo(@Valid Todo todo, BindingResult result,ModelMap model) {
+		if(result.hasErrors()) {
+			model.put("todo", todo);
+			return "addTodo";
+		}else {
+			todo.setUsername((String)model.get("name"));
+			todoService.updateTodo(todo);
+			return "redirect:list-todos";
+		}
+	}
 	
 	
 	
-	
-	
-	
-	
-	
-}
+}//class end

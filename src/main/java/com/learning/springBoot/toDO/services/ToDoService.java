@@ -35,5 +35,19 @@ public class ToDoService {
 		todos.removeIf(predictate);
 		return null;
 	}
+
+	public Todo updateById(int id) {
+		
+		Predicate<? super Todo> predictate = todo -> todo.getId()==id;
+		
+		Todo todo = todos.stream().filter(predictate).findFirst().get(); 
+		return todo;
+	}
+
+	public void updateTodo(Todo todo) {
+		deleteById(todo.getId());
+		todos.add(todo);
+		
+	}
 	
 }
