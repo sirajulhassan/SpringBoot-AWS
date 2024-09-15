@@ -129,6 +129,12 @@
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-webmvc</artifactId>
 		</dependency>
+		<!--datepicker-->
+		<dependency>
+		    <groupId>org.webjars</groupId>
+		    <artifactId>bootstrap-datepicker</artifactId>
+		    <version>1.9.0</version>
+		</dependency>
 
 
 		

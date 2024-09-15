@@ -3,6 +3,7 @@ package com.learning.springBoot.toDO.services;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 import org.springframework.stereotype.Service;
 
@@ -26,6 +27,27 @@ public class ToDoService {
 	public void addTodo(String username, String description, LocalDate date, boolean done) {
 		Todo todo = new Todo(++id, username, description, date, done);
 		todos.add(todo);
+	}
+
+	public List<Todo> deleteById(int id) {
+		
+		Predicate<? super Todo> predictate= todo ->  todo.getId() == id ;
+		todos.removeIf(predictate);
+		return null;
+	}
+
+	public Todo updateById(int id) {
+		
+		Predicate<? super Todo> predictate = todo -> todo.getId()==id;
+		
+		Todo todo = todos.stream().filter(predictate).findFirst().get(); 
+		return todo;
+	}
+
+	public void updateTodo(Todo todo) {
+		deleteById(todo.getId());
+		todos.add(todo);
+		
 	}
 	
 }

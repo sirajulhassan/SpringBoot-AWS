@@ -13,7 +13,6 @@ import com.learning.springBoot.toDO.services.LoginService;
 
 @Controller
 @SessionAttributes("name")
-
 public class LoginController {
 	
 	LoginService loginService;
@@ -30,13 +29,6 @@ public class LoginController {
 	public String login() {
 		return "login";
 	}
-	
-	@RequestMapping("test")
-	public String test() {
-		return "login";
-	}
-	
-	
 	
 	//for the form from login(post)
 		@RequestMapping(value ="login", method = RequestMethod.POST)

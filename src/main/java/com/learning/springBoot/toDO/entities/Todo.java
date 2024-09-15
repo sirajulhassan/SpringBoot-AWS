@@ -4,12 +4,16 @@ import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Size;
 
 
 public class Todo {
 
 	private int id;
 	private String username;
+	
+	// rule for the jakarta validation
+	@Size(min = 5, message = "At least 5 characters are required")
 	private String description;
 	private LocalDate targetDate;
 	private boolean done;
