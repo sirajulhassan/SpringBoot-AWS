@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.learning.springBoot.toDO.entities.Todo;
 import com.learning.springBoot.toDO.services.ToDoService;
+
+import jakarta.validation.Valid;
 
 
 
@@ -47,10 +50,22 @@ public class ToDoController {
 		return  "addTodo";
 	}
 	
+	// added valid tag for enable the form validation
+	// BindinResult is used to get the result status for verifying any errors 
 	@RequestMapping(value = "add-todo", method=RequestMethod.POST)
-	public String addTodo(@ModelAttribute Todo todo,ModelMap model) {
-		todoService.addTodo((String)model.get("name"),todo.getDescription(), LocalDate.now().plusDays(2),false);
-		return  "redirect:list-todos";
+	public String addTodo(@Valid Todo todo, BindingResult result,ModelMap model) {
+		System.out.println("checvking for errors");
+		System.out.println(result.hasErrors());
+		if(result.hasErrors()) {
+			model.put("todo", todo);
+			System.out.println("inside error loop");
+			return "addTodo";
+		}else {
+			System.out.println("outside error loop");
+			todoService.addTodo((String)model.get("name"),todo.getDescription(), LocalDate.now().plusDays(2),false);
+			return "redirect:list-todos";
+		}
+		
 	}
 	
 	
