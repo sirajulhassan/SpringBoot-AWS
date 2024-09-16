@@ -64,7 +64,7 @@ public class ToDoController {
 			return "addTodo";
 		}else {
 			System.out.println("outside error loop");
-			todoService.addTodo((String)model.get("name"),todo.getDescription(), LocalDate.now().plusDays(2),false);
+			todoService.addTodo((String)model.get("name"),todo.getDescription(), todo.getTargetDate(),false);
 			return "redirect:list-todos";
 		}
 		
