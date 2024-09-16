@@ -20,11 +20,10 @@
 		</div>
 	</form:form>
 </div>
-<script src="webjars/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+<%@ include file="common/footer.jspf"%>
 <script type="text/javascript">
 		$('#targetDate').datepicker({
 		    format: 'dd/mm/yyyy'
 		});
 </script>
-
-<%@ include file="common/footer.jspf"%>
