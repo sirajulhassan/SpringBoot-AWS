@@ -4,8 +4,6 @@
 <div class="container">
 	<h1>Hey ${name}, Your ToDOs are:</h1>
 	<hr>
-	${todos}
-	<hr>
 	
 	<table class="table table-striped">
         <thead>
@@ -32,7 +30,9 @@
             </c:forEach>
         </tbody>
     </table>
+    <hr>
 	<a href="add-todo" class="btn btn-success">Add</a>&nbsp;
+	<hr>
 </div>
 <%@ include file="common/footer.jspf"%>
 
