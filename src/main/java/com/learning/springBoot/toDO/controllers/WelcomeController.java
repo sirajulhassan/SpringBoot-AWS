@@ -13,7 +13,6 @@ import com.learning.springBoot.toDO.services.LoginService;
 
 
 @Controller
-@SessionAttributes("name")
 public class WelcomeController {
 	
 	@RequestMapping(value ="/", method = RequestMethod.GET)

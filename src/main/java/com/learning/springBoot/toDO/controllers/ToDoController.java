@@ -1,19 +1,15 @@
 package com.learning.springBoot.toDO.controllers;
 
 import java.text.MessageFormat;
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttribute;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.learning.springBoot.toDO.entities.Todo;
 import com.learning.springBoot.toDO.services.ToDoService;
@@ -23,8 +19,6 @@ import jakarta.validation.Valid;
 
 
 @Controller
-//@ResponseBody
-@SessionAttributes("name")
 public class ToDoController {
 	
 	ToDoService todoService;
@@ -36,7 +30,7 @@ public class ToDoController {
 	
 	//list all todo
 	@RequestMapping(value = "list-todos", method=RequestMethod.GET)
-	public String listTodos(ModelMap model, @SessionAttribute("name") String name) {
+	public String listTodos(ModelMap model) {
 		model.put("name", getLoggedUser());
 		System.out.println(MessageFormat.format("this is name from list-todo{0}",getLoggedUser()));
 		
