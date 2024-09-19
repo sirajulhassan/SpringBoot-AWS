@@ -1,5 +1,6 @@
 package com.learning.springBoot.toDO.controllers;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,8 +18,13 @@ public class WelcomeController {
 	
 	@RequestMapping(value ="/", method = RequestMethod.GET)
 	public String gotoWelcomePage(ModelMap model) {
-		model.put("name", "Benazin");
+		System.out.println("Welecome controller: " +getLoggedUser());
+		model.put("name", getLoggedUser());
 		return "welcome";
+	}
+	
+	private String getLoggedUser() {
+		 return SecurityContextHolder.getContext().getAuthentication().getName();
 	}
 	
 	
