@@ -40,7 +40,7 @@ public class ToDoController {
 		model.put("name", getLoggedUser());
 		System.out.println(MessageFormat.format("this is name from list-todo{0}",getLoggedUser()));
 		
-		List<Todo> todos = todoService.findByUserName("test");
+		List<Todo> todos = todoService.findByUserName(getLoggedUser());
 		model.put("todos", todos);
 		return  "listToDos";
 	}
