@@ -16,12 +16,18 @@ public class SpringSecurityConfiguration {
 //	but now we are using inMemory
 	@Bean
 	public InMemoryUserDetailsManager createUserDetailsManager() {
-		
+		UserDetails adminUser = createUser("admin", "admin");
+		UserDetails testUser = createUser("tester", "tester");
+		return new InMemoryUserDetailsManager(adminUser,testUser);
+	}
+
+	private UserDetails createUser(String username, String password) {
 		Function<String, String> passwordEncoder = input -> passwordEncoder().encode(input);
 		UserDetails userDetails = User.builder()
-								.passwordEncoder(passwordEncoder).username("admin").password("admin").roles("admin","ADMIN").build();
-		
-		return new InMemoryUserDetailsManager(userDetails);
+				.passwordEncoder(passwordEncoder)
+				.username(username).password(password)
+				.roles(password, "ADMIN").build();
+		return userDetails;
 	}
 	
 	// custom password encorder using Bcrypt

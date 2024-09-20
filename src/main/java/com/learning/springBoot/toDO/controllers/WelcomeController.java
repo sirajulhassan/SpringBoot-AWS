@@ -17,7 +17,6 @@ public class WelcomeController {
 	
 	@RequestMapping(value ="/", method = RequestMethod.GET)
 	public String gotoWelcomePage(ModelMap model) {
-		System.out.println("Welecome controller: " +getLoggedUser());
 		model.put("name", getLoggedUser());
 		return "welcome";
 	}
