@@ -8,10 +8,28 @@ import java.util.function.Predicate;
 import org.springframework.stereotype.Service;
 
 import com.learning.springBoot.toDO.entities.Todo;
+import com.learning.springBoot.toDO.repositories.TodoRepo;
 
 @Service
 public class ToDoService {
- 
+	
+	TodoRepo todoRepo;
+
+	/*
+	 * Contructors 
+	 * 1)default 
+	 * 2)Autowiring
+	 * 
+	 */
+	
+	public ToDoService(TodoRepo todoRepo) {
+		super();
+		this.todoRepo = todoRepo;
+	}
+
+
+
+
 	private static List<Todo> todos = new ArrayList<Todo>();
 	private static int id = 0;
 	static {
@@ -21,8 +39,12 @@ public class ToDoService {
 	}
 	
 	public List<Todo> findByUserName(String userName){
+		
 		Predicate<? super Todo> predictate= todo ->  todo.getUsername().equalsIgnoreCase(userName);
-		return todos.stream().filter(predictate).toList();
+		System.out.println(String.format("getby username service-userName = %s|| todo list  = /n %s", userName,todoRepo.findByUserName(userName)));
+		
+		//return todos.stream().filter(predictate).toList();
+		return todoRepo.findByUserName(userName);
 	}
 
 	public void addTodo(String username, String description, LocalDate date, boolean done) {
