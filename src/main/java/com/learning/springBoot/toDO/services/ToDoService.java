@@ -57,8 +57,13 @@ public class ToDoService {
 
 	public List<Todo> deleteById(int id) {
 		
-		Predicate<? super Todo> predictate= todo ->  todo.getId() == id ;
-		todos.removeIf(predictate);
+		/* Using JPA instead of below code
+		 * ----------------------------------
+		 * Predicate<? super Todo> predictate= todo -> todo.getId() == id ;
+		 * todos.removeIf(predictate);
+		 */
+		
+		todoRepo.deleteById(id);
 		return null;
 	}
 
