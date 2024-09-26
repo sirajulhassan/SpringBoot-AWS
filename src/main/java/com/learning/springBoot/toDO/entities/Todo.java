@@ -30,12 +30,6 @@ public class Todo {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getUsername() {
-		return userName;
-	}
-	public void setUsername(String username) {
-		this.userName = username;
-	}
 	public String getDescription() {
 		return description;
 	}
