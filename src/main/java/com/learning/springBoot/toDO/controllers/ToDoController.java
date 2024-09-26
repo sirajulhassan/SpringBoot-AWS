@@ -66,9 +66,6 @@ public class ToDoController {
 	// deleteing
 	@RequestMapping(value = "delete-todo", method=RequestMethod.GET)
 	public String deleteTodo(ModelMap model, @RequestParam int id) {
-		
-		System.out.println(MessageFormat.format("this is id from delete-todo{0}",id));
-		
 		todoService.deleteById(id);
 		return  "redirect:list-todos";
 	}
