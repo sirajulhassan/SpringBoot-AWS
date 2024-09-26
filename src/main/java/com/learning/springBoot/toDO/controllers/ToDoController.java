@@ -53,10 +53,10 @@ public class ToDoController {
 	public String addTodo(@Valid Todo todo, BindingResult result,ModelMap model) {
 		if(result.hasErrors()) {
 			model.put("todo", todo);
-			System.out.println("inside error loop");
 			return "addTodo";
 		}else {
-			todoService.addTodo(getLoggedUser(),todo.getDescription(), todo.getTargetDate(),false);
+			todo.setUserName(getLoggedUser());
+			todoService.addTodo(todo);
 			return "redirect:list-todos";
 		}
 		
@@ -89,7 +89,7 @@ public class ToDoController {
 			model.put("todo", todo);
 			return "addTodo";
 		}else {
-			todo.setUsername(getLoggedUser());
+			todo.setUserName(getLoggedUser());
 			todoService.updateTodo(todo);
 			return "redirect:list-todos";
 		}

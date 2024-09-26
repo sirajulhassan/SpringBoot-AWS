@@ -40,16 +40,19 @@ public class ToDoService {
 	
 	public List<Todo> findByUserName(String userName){
 		
-		Predicate<? super Todo> predictate= todo ->  todo.getUsername().equalsIgnoreCase(userName);
+		Predicate<? super Todo> predictate= todo ->  todo.getUserName().equalsIgnoreCase(userName);
 		System.out.println(String.format("getby username service-userName = %s|| todo list  = /n %s", userName,todoRepo.findByUserName(userName)));
 		
 		//return todos.stream().filter(predictate).toList();
 		return todoRepo.findByUserName(userName);
 	}
 
-	public void addTodo(String username, String description, LocalDate date, boolean done) {
-		Todo todo = new Todo(++id, username, description, date, done);
-		todos.add(todo);
+	public void addTodo(Todo todo) {
+		//Todo todo = new Todo(++id, username, description, date, done);
+		//todos.add(todo);
+		
+		//using JPA save to add the entity to database
+		todoRepo.save(todo);
 	}
 
 	public List<Todo> deleteById(int id) {
