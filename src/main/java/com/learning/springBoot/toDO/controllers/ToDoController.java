@@ -32,8 +32,6 @@ public class ToDoController {
 	@RequestMapping(value = "list-todos", method=RequestMethod.GET)
 	public String listTodos(ModelMap model) {
 		model.put("name", getLoggedUser());
-		System.out.println(MessageFormat.format("this is name from list-todo{0}",getLoggedUser()));
-		
 		List<Todo> todos = todoService.findByUserName(getLoggedUser());
 		model.put("todos", todos);
 		return  "listToDos";
