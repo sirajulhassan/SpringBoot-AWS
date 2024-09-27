@@ -71,14 +71,19 @@ public class ToDoService {
 		
 		Predicate<? super Todo> predictate = todo -> todo.getId()==id;
 		
-		Todo todo = todos.stream().filter(predictate).findFirst().get(); 
+		//Todo todo = todos.stream().filter(predictate).findFirst().get(); 
+		Todo todo = todoRepo.getById(id);
+		System.out.println("Todo :: "+todo);
 		return todo;
 	}
 
 	public void updateTodo(Todo todo) {
-		deleteById(todo.getId());
-		todos.add(todo);
-		
+		/*updated below code to use JPA
+		 * --------------------------------------
+		 * 
+		 * deleteById(todo.getId()); todos.add(todo);
+		 */
+		todoRepo.save(todo);
 	}
 	
 }
