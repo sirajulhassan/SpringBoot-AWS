@@ -75,12 +75,14 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
+		<!--
+		h2 is not needed. adding sql database
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		
+		-->
 		<!--sECTION 13 BUILD WEBaPPLIATION -->
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
@@ -149,6 +151,12 @@
 		    <version>3.0.1</version>
 		</dependency>
 	<!--jsp fix end-->
+	
+	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>8.0.33</version>
+	</dependency> 
 
 
 		
